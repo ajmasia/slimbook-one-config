@@ -6,4 +6,5 @@
   ./neovim
   ./fzf
   ./starship
+  ./lazygit
 ]
