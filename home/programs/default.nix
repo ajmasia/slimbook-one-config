@@ -7,4 +7,5 @@
   ./fzf
   ./starship
   ./lazygit
+  ./bat
 ]
