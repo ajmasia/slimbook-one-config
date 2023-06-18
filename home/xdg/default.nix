@@ -10,6 +10,13 @@ in
 
       desktopEntries = import ./desktop.nix;
       mimeApps = import ./mine.nix;
+
+      configFile = {
+        "ranger" = {
+          recursive = true;
+          source = ./config/ranger;
+        };
+      };
     };
   }
 ]
