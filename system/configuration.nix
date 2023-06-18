@@ -91,6 +91,9 @@
     };
 
     # gvfs.enable = true; # needed for trahs support with nautilus
+    pcscd = {
+      enable = true;
+    }; # Yubikey smart card mode (CCID) and OTP mode (udev)
   };
 
   virtualisation = {
