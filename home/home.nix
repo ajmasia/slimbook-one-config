@@ -36,5 +36,6 @@ with pkgs; {
     ./programs
     ./windowManager
     ./ui
+    ./xdg
   ];
 }

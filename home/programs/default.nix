@@ -9,4 +9,5 @@
   ./lazygit
   ./bat
   ./polybar
+  ./zathura
 ]

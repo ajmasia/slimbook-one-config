@@ -49,7 +49,12 @@ with pkgs; [
 
   # Productivity tools 
   unstable.obsidian # A second brain, for you, forever
-  # unstable.gnome.nautilus # File manager for GNOME
+  ranger # A simple, vim-like file manager
+  sxiv # Simple X Image Viewer
+
+  # Multimedia
+  pavucontrol # PulseAudio Volume Control
+  unstable.spotify # Play music from the Spotify music service
 
   # Dev tools
   docker-compose # A tool for defining and running multi-container Docker applications
@@ -58,6 +63,7 @@ with pkgs; [
   # Security tools
   unstable._1password-gui # Password manager and secure wallet
   unstable._1password # CLI Password manager and secure wallet
+  unstable.yubioath-flutter # Yubikey OTP generator
 
   # Browsers
   firefox # Firefox web browser

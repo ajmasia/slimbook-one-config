@@ -7,9 +7,10 @@ let
 
     config = {
       allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-        "obsidian"
         "1password"
         "1password-cli"
+        "obsidian"
+        "spotify"
       ];
       permittedInsecurePackages = [ ];
     };
