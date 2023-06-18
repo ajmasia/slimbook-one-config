@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+echo "Setting profile picture for the accounts service"
+sudo cp ../assets/avatars/avatar_ajamasia-2023.jpeg /var/lib/AccountsService/icons/ajmasia
+sudo echo "Icon=/var/lib/AccountsService/icons/ajmasia" >>/var/lib/AccountsService/users/ajmasia

@@ -89,6 +89,8 @@
     blueman = {
       enable = true;
     };
+
+    # gvfs.enable = true; # needed for trahs support with nautilus
   };
 
   virtualisation = {

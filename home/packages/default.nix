@@ -49,7 +49,11 @@ with pkgs; [
 
   # Productivity tools 
   unstable.obsidian # A second brain, for you, forever
+  # unstable.gnome.nautilus # File manager for GNOME
+
+  # Dev tools
   docker-compose # A tool for defining and running multi-container Docker applications
+
 
   # Security tools
   unstable._1password-gui # Password manager and secure wallet
