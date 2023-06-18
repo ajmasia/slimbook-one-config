@@ -5,6 +5,8 @@ let
   bspc_restart = pkgs.callPackage ../../windowManager/bspwm/scripts/bspc_restart.nix { };
   bspc_terminal-scrachpad = pkgs.callPackage ../../windowManager/bspwm/scripts/bspc_terminal-scrachpad.nix { };
 
+  pb_toggle = pkgs.callPackage ../../programs/polybar/scripts/pb_toggle.nix { };
+
   # default apps
   terminal = (import ../../constants.nix).terminal;
   browser = (import ../../constants.nix).browser;
@@ -22,6 +24,7 @@ in
   # desktops management
   "super + {1-9,0}" = "	bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}"; # switch to desktop
   "super + {Left,Right}" = "bspc desktop -f {prev,next}"; # switch to previous or next desktop
+  "super + shift + p" = "${pb_toggle}/bin/pb_toggle"; # show/hide polybar
 
   # apps shortcuts
   "super + @space" = "rofi -show drun -show-icons &"; # launch rofi

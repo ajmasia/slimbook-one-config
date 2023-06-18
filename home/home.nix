@@ -24,6 +24,13 @@ with pkgs; {
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true;
 
+  nixpkgs = {
+    overlays = [
+      # (import ./overlays/bin.nix)
+      # (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })
+    ];
+  };
+
   imports = builtins.concatMap import [
     ./services
     ./programs

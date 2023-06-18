@@ -29,7 +29,20 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "es_ES.UTF-8";
+      LC_IDENTIFICATION = "es_ES.UTF-8";
+      LC_MEASUREMENT = "es_ES.UTF-8";
+      LC_MONETARY = "es_ES.UTF-8";
+      LC_NAME = "es_ES.UTF-8";
+      LC_NUMERIC = "es_ES.UTF-8";
+      LC_PAPER = "es_ES.UTF-8";
+      LC_TELEPHONE = "es_ES.UTF-8";
+      LC_TIME = "es_ES.UTF-8";
+    };
+  };
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -55,10 +68,45 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = false; # Use pipewire as the default audio backend
+
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
+
+    # Bluetooth manager
+    blueman = {
+      enable = true;
+    };
+  };
+
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
 
   hardware.logitech.wireless.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+
+    settings = {
+      General = {
+        ControllerMode = "bredr";
+      };
+    };
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -67,7 +115,7 @@
   users.users.ajmasia = {
     isNormalUser = true;
     description = "ajmasia";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "input" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
   };
 
@@ -76,6 +124,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    logitech-udev-rules # Lunux device manager for the logitech unyfying receiver
   ];
 
   nix = {

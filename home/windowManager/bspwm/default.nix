@@ -40,6 +40,7 @@ in
       };
 
       startupPrograms = [
+        "polybar dell-monitor 2>~/.local/logs/polybar/dell-monitor.log"
         "sxhkd"
         "xsetroot -cursor_name left_ptr"
         "${bspc_set-monitors}/bin/bspc_set-monitors"

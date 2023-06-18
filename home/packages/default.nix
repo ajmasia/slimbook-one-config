@@ -49,6 +49,7 @@ with pkgs; [
 
   # Productivity tools 
   unstable.obsidian # A second brain, for you, forever
+  docker-compose # A tool for defining and running multi-container Docker applications
 
   # Security tools
   unstable._1password-gui # Password manager and secure wallet
@@ -59,4 +60,7 @@ with pkgs; [
 
   # UI
   feh # A fast and light imlib2-based image viewero
+
+  # Custom packages
+  # amd-controller # AMD processor controller CLI
 ]

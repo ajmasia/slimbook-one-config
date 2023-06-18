@@ -8,4 +8,5 @@
   ./starship
   ./lazygit
   ./bat
+  ./polybar
 ]

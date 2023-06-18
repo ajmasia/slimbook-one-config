@@ -7,7 +7,7 @@ let
   bspc = "${pkgs.bspwm}/bin/bspc";
 in
 pkgs.writeShellScriptBin "bspc_restart" ''
-  # ${pkill} polybar
+  ${pkill} polybar
   ${pkill} sxhkd
   # ${pkill} -f cloud-drive*
   ${systemctl} --user restart picom.service
