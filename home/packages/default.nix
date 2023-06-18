@@ -28,9 +28,16 @@ with pkgs; [
   lfs # Get infomation on yoour mounted disks
   libnotify # A library that sends desktop notifications to a notification daemon
   tree # A recursive directory listing program that produces a depth indented listing of files
+  xdotool # Fake keyboard/mouse input, window management, and more
+  xdo # Small X utility to perform elementary actions on windows
+  xsel # Copy/paste to the X11 clipboard from command line
+
+  # bullshit apps
+  cmatrix # Matrix effect in the terminal
 
   # System fonts
   myNerdFonts # My custom Nerd Fonts
+  font-awesome # The internet famous font and CSS toolkit
 
   # Code builders, compilers and interpreters
   gcc # GNU compiler collection tools

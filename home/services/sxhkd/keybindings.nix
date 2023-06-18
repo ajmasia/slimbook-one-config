@@ -3,6 +3,7 @@
 let
   # scripts
   bspc_restart = pkgs.callPackage ../../windowManager/bspwm/scripts/bspc_restart.nix { };
+  bspc_terminal-scrachpad = pkgs.callPackage ../../windowManager/bspwm/scripts/bspc_terminal-scrachpad.nix { };
 
   # default apps
   terminal = (import ../../constants.nix).terminal;
@@ -27,4 +28,8 @@ in
   "super + Return" = "alacritty"; # open terminal
   "super + shift + b" = "${browser}"; # open browser
   "super + shift + f" = "flameshot gui"; # open flameshot gui
+
+  # crachpads
+  # terminal
+  "super + shift + t" = "${bspc_terminal-scrachpad}/bin/bspc_terminal-scrachpad";
 }
