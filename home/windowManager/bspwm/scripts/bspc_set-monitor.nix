@@ -22,8 +22,8 @@ pkgs.writeShellScriptBin "bspc_set-monitors" ''
 
     ${notify} "Portable Dell Monitor Connected"
   else
-    ${bspc} monitor ${PORTABLE_MONITOR} -d I II
-    ${bspc} monitor ${MAIN_MONITOR} -d III IV V VI VII VIII IX X 
+    ${bspc} monitor ${PORTABLE_MONITOR} -d I
+    ${bspc} monitor ${MAIN_MONITOR} -d II III IV V VI VII VIII IX X 
     ${bspc} desktop I -l monocle
 
     ${notify} "Window Manager" "Dual Monitors Connected" -i "~/.local/share/notify-icons/nixos.png"

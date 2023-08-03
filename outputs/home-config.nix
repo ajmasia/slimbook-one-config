@@ -11,6 +11,8 @@ let
         "1password-cli"
         "obsidian"
         "spotify"
+        "synology-drive-client"
+        "insync"
       ];
       permittedInsecurePackages = [ ];
     };

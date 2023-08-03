@@ -20,9 +20,11 @@ in
   "super + {_,shift +}w" = "bspc node -{c,k}"; # close or kill window
   "super + m" = "bspc desktop -l next"; # alternate between monocle and tiled layout
   "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,fullscreen}"; # alternate between tiled, pseudo_tiled, floating and fullscreen
+  "super + shift + {1-9,0}" = "bspc node -d {I,II,III,IV,V,VI,VII,VIII,IX,X} -f"; # send window to desktop
+  "super + shift + bracket{left,right}" = "bspc node -d {prev,next} -f"; # send window to previous or next desktop
 
   # desktops management
-  "super + {1-9,0}" = "	bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}"; # switch to desktop
+  "super + {1-9,0}" = "bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}"; # switch to desktop
   "super + {Left,Right}" = "bspc desktop -f {prev,next}"; # switch to previous or next desktop
   "super + shift + p" = "${pb_toggle}/bin/pb_toggle"; # show/hide polybar
 

@@ -51,6 +51,9 @@ with pkgs; [
   unstable.obsidian # A second brain, for you, forever
   ranger # A simple, vim-like file manager
   sxiv # Simple X Image Viewer
+  unstable.synology-drive-client # Synology Drive Client
+  unstable.insync # Google Drive client
+  gnome.nautilus # Nautilus file manager
 
   # Multimedia
   pavucontrol # PulseAudio Volume Control
@@ -58,7 +61,6 @@ with pkgs; [
 
   # Dev tools
   docker-compose # A tool for defining and running multi-container Docker applications
-
 
   # Security tools
   unstable._1password-gui # Password manager and secure wallet
@@ -71,6 +73,7 @@ with pkgs; [
   # UI
   feh # A fast and light imlib2-based image viewero
 
-  # Custom packages
-  # amd-controller # AMD processor controller CLI
+  # Dev tools
+  httpie
+  insomnia
 ]

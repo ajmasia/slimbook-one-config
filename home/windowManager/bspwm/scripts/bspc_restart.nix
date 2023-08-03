@@ -9,7 +9,7 @@ in
 pkgs.writeShellScriptBin "bspc_restart" ''
   ${pkill} polybar
   ${pkill} sxhkd
-  # ${pkill} -f cloud-drive*
+  ${pkill} -f cloud-drive*
   ${systemctl} --user restart picom.service
   ${bspc} wm -r
   ${notify} 'BSPWM' \

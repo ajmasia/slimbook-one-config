@@ -10,4 +10,5 @@
   ./bat
   ./polybar
   ./zathura
+  ./tmux
 ]
