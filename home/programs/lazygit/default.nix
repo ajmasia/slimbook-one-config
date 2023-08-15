@@ -1,13 +1,10 @@
-{ pkgs, unstable-pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  unstable = unstable-pkgs;
-in
 {
   programs.lazygit = {
     enable = true;
 
-    package = unstable.lazygit;
+    package = pkgs.lazygit;
     settings = {
       disableStartupPopups = true;
     };

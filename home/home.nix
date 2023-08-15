@@ -1,4 +1,4 @@
-{ inputs, pkgs, unstable-pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   username = (import ./constants.nix).userName;
@@ -13,7 +13,7 @@ with pkgs; {
       variant = "altgr-intl";
     };
 
-    packages = (import ./packages { pkgs = pkgs; unstable = unstable-pkgs; });
+    packages = (import ./packages { pkgs = pkgs; });
 
     #  User assets and personal config
     file = (import ./file) { };
@@ -25,6 +25,17 @@ with pkgs; {
   fonts.fontconfig.enable = true;
 
   nixpkgs = {
+    config = {
+      allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+        "1password"
+        "1password-cli"
+        "obsidian"
+        "spotify"
+        "synology-drive-client"
+        "insync"
+      ];
+      permittedInsecurePackages = [ ];
+    };
     overlays = [
       # (import ./overlays/bin.nix)
       # (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })

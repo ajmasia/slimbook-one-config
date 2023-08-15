@@ -44,6 +44,7 @@ in
         "sxhkd"
         "xsetroot -cursor_name left_ptr"
         "${bspc_set-monitors}/bin/bspc_set-monitors"
+        "insync start"
       ];
     };
   };

@@ -1,13 +1,10 @@
-{ pkgs, unstable-pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  unstable = unstable-pkgs;
-in
 {
   programs.fzf = {
     enable = true;
 
-    package = unstable.fzf;
+    package = pkgs.fzf;
     enableBashIntegration = true;
   };
 }

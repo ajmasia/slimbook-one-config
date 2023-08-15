@@ -1,13 +1,10 @@
-{ pkgs, unstable-pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  unstable = unstable-pkgs;
-in
 {
   programs.starship = {
     enable = true;
 
-    package = unstable.starship;
+    package = pkgs.starship;
     enableBashIntegration = true;
 
     settings = {

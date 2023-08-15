@@ -13,6 +13,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.timeout = 3;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
@@ -20,6 +21,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   networking.hostName = "viserion";
+
+  # TODO: Add wg-quick vpn interface to networking settingi
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -43,6 +46,7 @@
       LC_TIME = "es_ES.UTF-8";
     };
   };
+
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -68,8 +72,21 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
+  sound = {
+    enable = true;
+
+    mediaKeys = {
+      enable = true;
+    };
+  };
+
   hardware.pulseaudio.enable = false; # Use pipewire as the default audio backend
+
+  security = {
+    polkit = {
+      enable = true;
+    };
+  };
 
   services = {
     pipewire = {
@@ -91,15 +108,38 @@
     };
 
     # gvfs.enable = true; # needed for trahs support with nautilus
+
     pcscd = {
       enable = true;
     }; # Yubikey smart card mode (CCID) and OTP mode (udev)
+
+    openvpn = { };
+
+    mullvad-vpn = {
+      enable = true;
+
+      package = pkgs.mullvad-vpn;
+    };
+
+    udisks2 = {
+      enable = true;
+    };
+
+
+    # Needed to some apps like blueman-manager or networkmanager to save their options
+    gnome.gnome-keyring.enable = true;
+
+    # Zeroconf protocol implementation for service discovery
+    avahi = {
+      enable = true;
+    };
   };
 
   virtualisation = {
     docker = {
       enable = true;
     };
+
   };
 
   hardware.logitech.wireless.enable = true;
@@ -126,15 +166,38 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    logitech-udev-rules # Lunux device manager for the logitech unyfying receiver
-  ];
+  environment =
+    {
+      etc = {
+        openvpn = {
+          source = "${pkgs.update-resolv-conf}/libexec/openvpn";
+        };
+      };
+
+      systemPackages = with pkgs; [
+        vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+        wget
+        logitech-udev-rules # Lunux device manager for the logitech unyfying receiver
+      ];
+    };
 
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+    };
+    #
+    # Automate garbage collection
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 15d";
+    };
+  };
+
+  xdg = {
+    # Enable D-Bus communication for sandboxed applications
+    portal = {
+      enable = true;
     };
   };
 
@@ -157,7 +220,6 @@
       powerUpCommandsDelay = 30;
       resumeCommandsDelay = 10;
     };
-
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -192,4 +254,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 }
-

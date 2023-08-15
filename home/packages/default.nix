@@ -1,7 +1,7 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 
 let
-  myNerdFonts = (unstable.nerdfonts.override {
+  myNerdFonts = (pkgs.nerdfonts.override {
     fonts = [
       "FiraCode"
       "Hack"
@@ -48,24 +48,24 @@ with pkgs; [
   yarnWithNode18 # Node.js override with yarn
 
   # Productivity tools 
-  unstable.obsidian # A second brain, for you, forever
+  obsidian # A second brain, for you, forever
   ranger # A simple, vim-like file manager
   sxiv # Simple X Image Viewer
-  unstable.synology-drive-client # Synology Drive Client
-  unstable.insync # Google Drive client
+  synology-drive-client # Synology Drive Client
+  insync # Google Drive client
   gnome.nautilus # Nautilus file manager
 
   # Multimedia
   pavucontrol # PulseAudio Volume Control
-  unstable.spotify # Play music from the Spotify music service
+  spotify # Play music from the Spotify music service
 
   # Dev tools
   docker-compose # A tool for defining and running multi-container Docker applications
 
   # Security tools
-  unstable._1password-gui # Password manager and secure wallet
-  unstable._1password # CLI Password manager and secure wallet
-  unstable.yubioath-flutter # Yubikey OTP generator
+  _1password-gui # Password manager and secure wallet
+  _1password # CLI Password manager and secure wallet
+  yubioath-flutter # Yubikey OTP generator
 
   # Browsers
   firefox # Firefox web browser
@@ -76,4 +76,6 @@ with pkgs; [
   # Dev tools
   httpie
   insomnia
+
+  # Security and privacy
 ]

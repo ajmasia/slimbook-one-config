@@ -4,4 +4,5 @@
   ./dunst
   ./grobi
   ./flameshot
+  ./udiskie
 ] 
