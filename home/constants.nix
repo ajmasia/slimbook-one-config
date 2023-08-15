@@ -10,7 +10,7 @@ in
   configHome = configHome;
 
   # Monitors
-  mainMonitor = "HDMI-1";
+  mainMonitor = "DP-3";
   portableMonitor = "DP-2";
 
   # UI
