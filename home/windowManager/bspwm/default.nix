@@ -45,6 +45,8 @@ in
         "xsetroot -cursor_name left_ptr"
         "${bspc_set-monitors}/bin/bspc_set-monitors"
         "insync start"
+        "pgrep insync > /dev/null && notify-send 'Insync' 'Service running succesfully. Icon is hidden in the system tray' || notify-send 'System' 'Insysnc is not running'"
+        "sleep 3 && synology-drive"
       ];
     };
   };

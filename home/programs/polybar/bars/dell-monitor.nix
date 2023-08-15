@@ -27,7 +27,7 @@ in
   # Tray
   tray-position = right
   tray-detached = true
-  tray-offset-x = -760
+  tray-offset-x = -730
   tray-offset-y = 0
   tray-background = ${colors.bg}
   tray-foreground = ${colors.fg}
