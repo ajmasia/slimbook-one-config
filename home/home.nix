@@ -34,6 +34,7 @@ with pkgs; {
         "synology-drive-client"
         "insync"
         "todoist-electron"
+        "discord"
       ];
       permittedInsecurePackages = [ ];
     };
