@@ -54,10 +54,15 @@ with pkgs; [
   synology-drive-client # Synology Drive Client
   insync # Google Drive client
   gnome.nautilus # Nautilus file manager
+  todoist-electron # Todoist app
 
   # Multimedia
   pavucontrol # PulseAudio Volume Control
   spotify # Play music from the Spotify music service
+  cava # console-based Audio Visualizer for Alsa
+
+  # Messaging
+  telegram-desktop # Telegram Desktop messaging app
 
   # Dev tools
   docker-compose # A tool for defining and running multi-container Docker applications
