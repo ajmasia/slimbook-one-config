@@ -63,6 +63,7 @@ with pkgs; [
 
   # Messaging
   telegram-desktop # Telegram Desktop messaging app
+  discord # All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone
 
   # Dev tools
   docker-compose # A tool for defining and running multi-container Docker applications

@@ -33,6 +33,7 @@ with pkgs; {
         "spotify"
         "synology-drive-client"
         "insync"
+        "todoist-electron"
       ];
       permittedInsecurePackages = [ ];
     };
