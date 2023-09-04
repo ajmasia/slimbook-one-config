@@ -4,7 +4,7 @@
   # Free icons: 
   # https://uxwing.com/
   # https://icons-for-free.com/
-  ".local/share/wallpapers".source = ../../assets/wallpapers;
+  ".local/share/wallpapers".source = ../../../assets/wallpapers;
   # ".local/share/system-sounds".source = ../../../assets/system-sounds;
   # ".local/share/desktop-icons".source = ../../../assets/icons/desktop;
   # ".local/share/notify-icons".source = ../../../assets/icons/notify;

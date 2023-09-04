@@ -12,8 +12,8 @@ in
     };
     
     modules = [
-      ../system/hardware-configuration.nix
-      ../system/configuration.nix
+      ../machines/slimbook-one/hardware-configuration.nix
+      ../machines/slimbook-one/configuration.nix
       customModules
     ];
   };

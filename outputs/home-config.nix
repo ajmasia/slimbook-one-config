@@ -12,7 +12,7 @@ with inputs; {
     };
 
     modules = [
-      ../home/home.nix
+      ../home/ajmasia-dev/home.nix
     ];
   };
 }
