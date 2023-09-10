@@ -1,0 +1,143 @@
+#! /usr/bin/env bash
+
+MAIN_COMMAND=ff
+
+show_help() {
+	echo "Usage: $MAIN_COMMAND <option> [arguments]" | lolcat
+	echo ""
+	echo "Options:"
+	echo "  find                    Search for files"
+	echo "    -p, --path <path>     Specify the path to search in (default: current directory)"
+	echo "    -e, --exclude <dir>   Exclude directories from the search"
+	echo "    -n, --node-modules    Exclude the 'node_modules' folder"
+	echo "    -o, --open <app>      Open the selected file with <app> (default: value of FZF_OPEN or 'code')"
+	echo "  findg <string>          Search for a string within files"
+	echo "    -p, --path <path>     Specify the path to search in (default: current directory)"
+	echo "    -e, --exclude <dir>   Exclude directories from the search"
+	echo "    -n, --node-modules    Exclude the 'node_modules' folder"
+	echo "    -o, --open <app>      Open the selected file with <app> (default: value of FZF_OPEN or 'code')"
+	echo "  help, -h, --help        Show this help"
+	echo ""
+}
+
+check_dependencies() {
+	for cmd in fzf rg fd lolcat bat; do
+		if ! command -v $cmd &>/dev/null; then
+			if $cmf == "lolcat"; then
+				echo "$cmd is not installed. Please install it"
+			else
+				echo "$cmd is not installed. Please install it" | lolcat
+			fi
+			exit 1
+		fi
+	done
+}
+
+load_env() {
+	if [ -f "$HOME/.env" ]; then
+		export $(grep FZF_OPEN $HOME/.env | xargs)
+	fi
+}
+
+search_files() {
+	local path="."
+	local exclude_dirs=()
+	local exclude_node_modules=false
+	local open_app=$FZF_OPEN || "nvim"
+
+	while [[ "$#" -gt 0 ]]; do
+		case $1 in
+		-p | --path)
+			shift
+			path="$1"
+			shift
+			;;
+		-e | --exclude)
+			shift
+			exclude_dirs+=("$1")
+			shift
+			;;
+		-n | --node-modules)
+			exclude_node_modules=true
+			shift
+			;;
+		-o | --open)
+			shift
+			open_app="$1"
+			shift
+			;;
+		*)
+			echo "Unknown option: $1"
+			exit 1
+			;;
+		esac
+	done
+
+	local fd_options="--type f "
+	[ "$exclude_node_modules" = true ] && fd_options+=" --no-ignore"
+
+	for dir in "${exclude_dirs[@]}"; do
+		fd_options+=" --exclude '$dir'"
+	done
+
+	# Incorporate fd, fzf, and bat into the search
+	local selected_files=$(eval "fd $fd_options . $path" | fzf -m \
+		--preview 'bat --color=always --style=numbers,header {}' \
+		--preview-window=up:0:wrap:40)
+
+	# Check if fzf closed correctly and if a file was selected
+	if [ $? -eq 0 ] && [ ! -z "$selected_files" ]; then
+		echo "Selected files: " $selected_files | lolcat
+		IFS=$'\n'
+
+		# for file in $selected_files; do
+		# 	$open_app $file &
+		# done
+		local selected_files_str=""
+
+		for file in $selected_files; do
+			selected_files_str="$selected_files_str $file"
+		done
+
+		eval "$open_app $selected_files_str"
+
+		unset IFS
+	elif [ -z "$selected_file" ]; then
+		echo "No file selected" | lolcat
+		exit 1
+	else
+		echo "Operation canceled" | lolcat
+		exit 1
+	fi
+
+}
+
+# Main
+check_dependencies
+load_env
+
+FZF_OPEN=${FZF_OPEN:-"nvim"}
+
+if [[ "$#" -eq 0 ]]; then
+	show_help
+	exit 1
+fi
+
+while [[ "$#" -gt 0 ]]; do
+	case $1 in
+	find)
+		shift
+		search_files "$@"
+		exit 0
+		;;
+	help | -h | --help)
+		show_help
+		exit 0
+		;;
+	*)
+		echo "Invalid option: $1" | lolcat
+		echo "👀 please run $MAIN_COMMAND -h, --help or help to get valid options"
+		exit 1
+		;;
+	esac
+done

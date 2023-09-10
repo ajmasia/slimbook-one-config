@@ -31,6 +31,8 @@ with pkgs; [
   xdotool # Fake keyboard/mouse input, window management, and more
   xdo # Small X utility to perform elementary actions on windows
   xsel # Copy/paste to the X11 clipboard from command line
+  fd # A simple, fast and user-friendly alternative to 'find'
+  lolcat # Rainbows and unicorns!
 
   # bullshit apps
   cmatrix # Matrix effect in the terminal
@@ -84,4 +86,12 @@ with pkgs; [
   insomnia
 
   # Security and privacy
+
+  # Editors
+  vscode # Visual Studio Code
+  
+  # LSP and Lua tools
+  stylua
+  sumneko-lua-language-server
+  luajitPackages.luarocks
 ]

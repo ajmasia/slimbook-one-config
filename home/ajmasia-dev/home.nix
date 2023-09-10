@@ -35,6 +35,7 @@ with pkgs; {
         "insync"
         "todoist-electron"
         "discord"
+        "vscode"
       ];
       permittedInsecurePackages = [ ];
     };
