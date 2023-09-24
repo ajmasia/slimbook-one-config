@@ -1,7 +1,7 @@
 {
   c = "clear";
   cat = "bat";
-  ls = "exa";
+  ls = "eza";
   tree = "l --tree --color=always";
   gtree = "tree -l --git | less -r";
   vim = "nvim";

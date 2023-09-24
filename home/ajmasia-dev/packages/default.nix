@@ -24,7 +24,7 @@ with pkgs; [
   # Core tools
   ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
   tldr # Simplified and community-driven man pages
-  exa # A modern replacement for ls written in Rust
+  eza # A modern replacement for ls written in Rust
   lfs # Get infomation on yoour mounted disks
   libnotify # A library that sends desktop notifications to a notification daemon
   tree # A recursive directory listing program that produces a depth indented listing of files

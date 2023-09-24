@@ -32,6 +32,7 @@ with pkgs; {
         "obsidian"
         "spotify"
         "synology-drive-client"
+        "insync-pkg"
         "insync"
         "todoist-electron"
         "discord"
