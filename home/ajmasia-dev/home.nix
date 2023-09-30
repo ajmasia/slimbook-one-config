@@ -41,7 +41,7 @@ with pkgs; {
       permittedInsecurePackages = [ ];
     };
     overlays = [
-      # (import ./overlays/bin.nix)
+      (import ./overlays/bin.nix)
       # (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })
     ];
   };

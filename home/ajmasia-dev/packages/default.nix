@@ -21,6 +21,10 @@ let
   });
 in
 with pkgs; [
+
+  # From overlays
+  ajmasia-bin # Personal scripts
+
   # Core tools
   ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
   tldr # Simplified and community-driven man pages
