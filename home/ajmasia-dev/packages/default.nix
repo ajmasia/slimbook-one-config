@@ -37,6 +37,8 @@ with pkgs; [
   xsel # Copy/paste to the X11 clipboard from command line
   fd # A simple, fast and user-friendly alternative to 'find'
   lolcat # Rainbows and unicorns!
+  fortune # A simple program that displays a pseudorandom message from a database of quotations
+  unzip # A utility for unpacking zip files
 
   # bullshit apps
   cmatrix # Matrix effect in the terminal
@@ -93,7 +95,7 @@ with pkgs; [
 
   # Editors
   vscode # Visual Studio Code
-  
+
   # LSP and Lua tools
   stylua
   sumneko-lua-language-server
