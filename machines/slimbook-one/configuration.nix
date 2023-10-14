@@ -1,15 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -62,7 +62,6 @@
 
   services.xserver.windowManager.bspwm.enable = true;
 
-
   # Configure keymap in X11
   services.xserver.layout = "us";
   services.xserver.xkbVariant = "altgr-intl";
@@ -113,7 +112,7 @@
       enable = true;
     }; # Yubikey smart card mode (CCID) and OTP mode (udev)
 
-    openvpn = { };
+    openvpn = {};
 
     mullvad-vpn = {
       enable = true;
@@ -124,7 +123,6 @@
     udisks2 = {
       enable = true;
     };
-
 
     # Needed to some apps like blueman-manager or networkmanager to save their options
     gnome.gnome-keyring.enable = true;
@@ -139,7 +137,6 @@
     docker = {
       enable = true;
     };
-
   };
 
   hardware.logitech.wireless.enable = true;
@@ -160,30 +157,30 @@
   users.users.ajmasia = {
     isNormalUser = true;
     description = "ajmasia";
-    extraGroups = [ "wheel" "networkmanager" "audio" "input" "docker" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ ];
+    extraGroups = ["wheel" "networkmanager" "audio" "input" "docker"]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment =
-    {
-      etc = {
-        openvpn = {
-          source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-        };
+  environment = {
+    etc = {
+      openvpn = {
+        source = "${pkgs.update-resolv-conf}/libexec/openvpn";
       };
-
-      systemPackages = with pkgs; [
-        vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-        wget
-        logitech-udev-rules # Lunux device manager for the logitech unyfying receiver
-      ];
     };
+
+    systemPackages = with pkgs; [
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      wget
+      logitech-udev-rules # Lunux device manager for the logitech unyfying receiver
+      home-manager
+    ];
+  };
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
     #
     # Automate garbage collection
