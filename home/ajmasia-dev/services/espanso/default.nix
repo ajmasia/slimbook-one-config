@@ -1,6 +1,7 @@
 {...}: {
   services.espanso = {
-    enable = true;
+    # TODO: review current config
+    enable = false;
     matches = [
       {
         trigger = ":gm";
