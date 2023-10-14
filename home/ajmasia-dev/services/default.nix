@@ -5,4 +5,6 @@
   ./grobi
   ./flameshot
   ./udiskie
-] 
+  ./redshift
+  ./espanso
+]
