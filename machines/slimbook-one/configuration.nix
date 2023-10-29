@@ -131,6 +131,8 @@
     avahi = {
       enable = true;
     };
+
+    dbus.packages = [pkgs.dconf];
   };
 
   virtualisation = {
@@ -191,6 +193,17 @@
     };
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfreePredicate = pkg:
+        builtins.elem (pkgs.lib.getName pkg) [
+          "1password"
+          "1password-cli"
+        ];
+      permittedInsecurePackages = [];
+    };
+  };
+
   xdg = {
     # Enable D-Bus communication for sandboxed applications
     portal = {
@@ -217,6 +230,16 @@
       powerUpCommandsDelay = 30;
       resumeCommandsDelay = 10;
     };
+  };
+
+  programs = {
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = ["my-user-name"];
+    };
+
+    dconf.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

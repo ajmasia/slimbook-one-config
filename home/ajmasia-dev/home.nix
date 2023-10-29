@@ -26,20 +26,40 @@ in
     programs.home-manager.enable = true;
     fonts.fontconfig.enable = true;
 
+    accounts.email.accounts = {
+      icloud = {
+        primary = true;
+        himalaya.enable = true;
+        address = "antoniojosemasia@icloud.com";
+        realName = "Antonio José Masiá";
+        userName = "antoniojosemasia";
+        passwordCommand = "op item get 'iCloud main' --fields label=himalaya";
+        imap = {
+          host = "imap.mail.me.com";
+          port = 993;
+          tls.enable = true;
+        };
+        smtp = {
+          host = "smtp.mail.me.com";
+          port = 587;
+          tls.enable = true;
+        };
+      };
+    };
+
     nixpkgs = {
       config = {
         allowUnfreePredicate = pkg:
           builtins.elem (pkgs.lib.getName pkg) [
-            "1password"
-            "1password-cli"
             "obsidian"
             "spotify"
             "synology-drive-client"
-            "insync-pkg"
-            "insync"
+            # "insync-pkg"
+            # "insync"
             "todoist-electron"
             "discord"
             "vscode"
+            "google-chrome"
           ];
         permittedInsecurePackages = [];
       };
@@ -47,6 +67,28 @@ in
         (import ./overlays/bin.nix)
         # (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })
       ];
+    };
+
+    systemd.user.services = {
+      polkit-gnome-authentication-agent-1 = {
+        Unit = {
+          After = ["graphical-session-pre.target"];
+          Description = "polkit-gnome-authentication-agent-1";
+          PartOf = ["graphical-session.target"];
+        };
+
+        Service = {
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+          Type = "simple";
+        };
+
+        Install = {
+          WantedBy = ["graphical-session.target"];
+        };
+      };
     };
 
     imports = builtins.concatMap import [

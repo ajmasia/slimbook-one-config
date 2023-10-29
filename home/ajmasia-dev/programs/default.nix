@@ -11,4 +11,6 @@
   ./polybar
   ./zathura
   ./tmux
+  ./readline
+  ./himalaya
 ]

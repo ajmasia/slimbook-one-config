@@ -58,7 +58,7 @@ in
     ranger # A simple, vim-like file manager
     sxiv # Simple X Image Viewer
     synology-drive-client # Synology Drive Client
-    insync # Google Drive client
+    # insync # Google Drive client
     gnome.nautilus # Nautilus file manager
     todoist-electron # Todoist app
 
@@ -75,12 +75,13 @@ in
     docker-compose # A tool for defining and running multi-container Docker applications
 
     # Security tools
-    _1password-gui # Password manager and secure wallet
-    _1password # CLI Password manager and secure wallet
+    # _1password-gui # Password manager and secure wallet
+    # _1password # CLI Password manager and secure wallet
     yubioath-flutter # Yubikey OTP generator
 
     # Browsers
     firefox # Firefox web browser
+    google-chrome # Google Chrome web browser
 
     # UI
     feh # A fast and light imlib2-based image viewero
