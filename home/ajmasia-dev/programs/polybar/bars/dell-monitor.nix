@@ -1,15 +1,12 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   name = "dell-monitor";
 
   monitor = (import ../../../constants.nix).mainMonitor;
-  fonts = pkgs.callPackage ../utils/fonts.nix { };
-  colors = pkgs.callPackage ../utils/colors.nix { };
-in
-''
+  fonts = pkgs.callPackage ../utils/fonts.nix {};
+  colors = pkgs.callPackage ../utils/colors.nix {};
+in ''
   [bar/${name}]
-  
+
   # Monitor settings
   monitor = ${monitor}
   monitor-strict = false
@@ -27,7 +24,7 @@ in
   # Tray
   tray-position = right
   tray-detached = true
-  tray-offset-x = -730
+  tray-offset-x = -740
   tray-offset-y = 0
   tray-background = ${colors.bg}
   tray-foreground = ${colors.fg}
