@@ -79,7 +79,11 @@
     };
   };
 
-  hardware.pulseaudio.enable = false; # Use pipewire as the default audio backend
+  # hardware.pulseaudio.enable = false; # Use pipewire as the default audio backend
+  # hardware.pulseaudio = {
+  #   enable = true;
+  #   package = pkgs.pulseaudioFull;
+  # };
 
   security = {
     polkit = {
@@ -103,7 +107,7 @@
 
     # Bluetooth manager
     blueman = {
-      enable = true;
+      enable = false;
     };
 
     # gvfs.enable = true; # needed for trahs support with nautilus
@@ -147,7 +151,7 @@
 
     settings = {
       General = {
-        ControllerMode = "bredr";
+        ControllerMode = "dual";
       };
     };
   };
@@ -177,6 +181,7 @@
       wget
       logitech-udev-rules # Lunux device manager for the logitech unyfying receiver
       home-manager
+      bluetuith # Bluetooth manager
     ];
   };
 
