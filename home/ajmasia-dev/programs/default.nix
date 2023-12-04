@@ -13,5 +13,4 @@
   ./tmux
   ./readline
   ./himalaya
-  ./eww
 ]

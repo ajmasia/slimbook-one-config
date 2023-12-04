@@ -37,6 +37,8 @@ in
     fortune # A simple program that displays a pseudorandom message from a database of quotations
     unzip # A utility for unpacking zip files
     appimage-run # A tool to run AppImages
+    jq # A lightweight and flexible command-line JSON processor
+    socat # Multipurpose relay for bidirectional data transfer
 
     # bullshit apps
     cmatrix # Matrix effect in the terminal
@@ -85,6 +87,8 @@ in
 
     # UI
     feh # A fast and light imlib2-based image viewero
+    eww-wayland # Elkowar's Wacky Widgets for wayland
+    swww # Simple Wayland Web Widgets
 
     # Dev tools
     httpie
