@@ -230,7 +230,7 @@
     powerManagement = {
       enable = true;
 
-      awakeMode = "medium";
+      awakeMode = "slow";
       powertop.enable = false;
       powerUpCommandsDelay = 30;
       resumeCommandsDelay = 10;
