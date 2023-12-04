@@ -66,7 +66,6 @@
   # Configure keymap in X11
   services.xserver.layout = "us";
   services.xserver.xkbVariant = "altgr-intl";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -221,6 +220,8 @@
     # Enable D-Bus communication for sandboxed applications
     portal = {
       enable = true;
+
+      extraPortals = [pkgs.xdg-desktop-portal-gnome];
       config = {
         common = {
           default = [

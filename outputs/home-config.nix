@@ -14,7 +14,7 @@ in
       };
 
       modules = [
-        hpr-scratcher.homeManagerModules.default
+        # inputs.hpr-scratcher.homeManagerModules.default
         ../home/ajmasia-dev/home.nix
       ];
     };
