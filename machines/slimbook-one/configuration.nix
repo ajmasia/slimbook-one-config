@@ -213,6 +213,13 @@
     # Enable D-Bus communication for sandboxed applications
     portal = {
       enable = true;
+      config = {
+        common = {
+          default = [
+            "gtk"
+          ];
+        };
+      };
     };
   };
 
@@ -230,7 +237,7 @@
     powerManagement = {
       enable = true;
 
-      awakeMode = "slow";
+      awakeMode = "medium";
       powertop.enable = false;
       powerUpCommandsDelay = 30;
       resumeCommandsDelay = 10;

@@ -56,7 +56,7 @@ in
             "synology-drive-client"
             # "insync-pkg"
             # "insync"
-            "todoist-electron-8.9.3"
+            "todoist-electron-8.10.1"
             "discord"
             "vscode"
             "google-chrome"

@@ -1,16 +1,15 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 with pkgs; {
   services.picom = {
     enable = true;
 
-    package = picom-jonaburg;
+    # package = picom-jonaburg;
 
     vSync = true;
     backend = "glx";
 
     shadow = false;
-    shadowExclude = [ ];
+    shadowExclude = [];
 
     activeOpacity = 1.0;
     inactiveOpacity = 0.88;
@@ -20,9 +19,9 @@ with pkgs; {
     ];
 
     fade = true;
-    fadeSteps = [ 0.03 0.03 ];
+    fadeSteps = [0.03 0.03];
     fadeDelta = 8;
-    fadeExclude = [ ];
+    fadeExclude = [];
 
     wintypes = import ./win-types.nix;
     settings = import ./settings.nix;

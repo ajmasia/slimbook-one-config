@@ -10,8 +10,8 @@
     variables = {
       editing-mode = "vi";
       show-mode-in-prompt = true;
-      vi-cmd-mode-string = "\\1\\e[38;5;214m\\2 N \\1\\e[0m\\2";
-      vi-ins-mode-string = "\\1\\e[38;5;27m\\2 I \\1\\e[0m\\2";
+      vi-cmd-mode-string = "\\1\\e[38;5;214m\\2N \\1\\e[0m\\2";
+      vi-ins-mode-string = "\\1\\e[38;5;27m\\2I \\1\\e[0m\\2";
     };
   };
 }
