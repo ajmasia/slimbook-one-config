@@ -19,6 +19,8 @@
     };
 
     # amd-controller.url = "path:/home/ajmasia/repos/amd-controller";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hpr-scratcher.url = "github:hyprland-community/hpr-scratcher?dir=nix";
   };
 
   outputs = inputs @ {nixpkgs, ...}: let

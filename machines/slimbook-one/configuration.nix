@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -58,9 +59,9 @@
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.displayManager.defaultSession = "none+bspwm";
+  # services.xserver.displayManager.defaultSession = "none+bspwm";
 
-  services.xserver.windowManager.bspwm.enable = true;
+  # services.xserver.windowManager.bspwm.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -183,6 +184,13 @@
       home-manager
       bluetuith # Bluetooth manager
     ];
+
+    sessionVariables = {
+      # If your cursor becomes invisible
+      WLR_NO_HARDWARE_CURSORS = "1";
+      # Hint electron apps to use wayland
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
   nix = {
@@ -252,6 +260,13 @@
     };
 
     dconf.enable = true;
+
+    hyprland = {
+      enable = true;
+      xwayland = {
+        enable = true;
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are

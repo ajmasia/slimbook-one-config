@@ -1,18 +1,21 @@
-{ system, inputs, ... }:
-
-let
+{
+  system,
+  inputs,
+  ...
+}: let
   pkgs = inputs.nixpkgs.legacyPackages.${system};
 in
-with inputs; {
-  ajmasia = home-manager.lib.homeManagerConfiguration {
-    pkgs = nixpkgs.legacyPackages.${system};
+  with inputs; {
+    ajmasia = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
 
-    extraSpecialArgs = {
-      inherit inputs;
+      extraSpecialArgs = {
+        inherit inputs;
+      };
+
+      modules = [
+        hpr-scratcher.homeManagerModules.default
+        ../home/ajmasia-dev/home.nix
+      ];
     };
-
-    modules = [
-      ../home/ajmasia-dev/home.nix
-    ];
-  };
-}
+  }

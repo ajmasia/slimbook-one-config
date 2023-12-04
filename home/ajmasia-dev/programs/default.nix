@@ -8,7 +8,7 @@
   ./starship
   ./lazygit
   ./bat
-  ./polybar
+  # ./polybar
   ./zathura
   ./tmux
   ./readline

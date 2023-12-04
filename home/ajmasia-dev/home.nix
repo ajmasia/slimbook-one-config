@@ -91,10 +91,27 @@ in
       };
     };
 
+    programs.hpr-scratcher.enable = true;
+    programs.hpr-scratcher.scratchpads = {
+      term = {
+        command = "kitty --class kitty-dropterm";
+        animation = "fromTop";
+        margin = 50;
+        unfocus = "hide";
+      };
+    };
+    programs.hpr-scratcher.binds = {
+      term = {
+        mods = "SUPER";
+        key = "T";
+        type = "show";
+      };
+    };
+
     imports = builtins.concatMap import [
       ./services
       ./programs
-      ./windowManager
+      # ./windowManager
       ./ui
       ./xdg
     ];

@@ -1,10 +1,10 @@
 [
-  ./sxhkd
-  ./picom
+  # ./sxhkd
+  # ./picom
   ./dunst
-  ./grobi
+  # ./grobi
   ./flameshot
   ./udiskie
   ./redshift
-  ./espanso
+  # ./espanso
 ]
