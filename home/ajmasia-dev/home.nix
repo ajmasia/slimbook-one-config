@@ -56,13 +56,17 @@ in
             "synology-drive-client"
             # "insync-pkg"
             # "insync"
-            "todoist-electron-8.10.1"
+            "todoist-electron-8.9.3"
             "discord"
             "vscode"
             "google-chrome"
+            "ookla-speedtest"
           ];
-        permittedInsecurePackages = [];
+        permittedInsecurePackages = [
+          "electron-25.9.0"
+        ];
       };
+
       overlays = [
         (import ./overlays/bin.nix)
         # (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })

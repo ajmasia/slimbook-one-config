@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.alacritty = {
     enable = true;
 
@@ -62,8 +60,12 @@
       };
 
       window = {
-        padding = { x = 8; y = 8; };
-	decorations = "none";
+        padding = {
+          x = 8;
+          y = 8;
+        };
+        decorations = "none";
+        # opacity = 0.0;
       };
 
       cursor = {

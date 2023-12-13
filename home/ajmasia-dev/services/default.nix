@@ -7,4 +7,5 @@
   ./udiskie
   ./redshift
   # ./espanso
+  # ./gammastep
 ]

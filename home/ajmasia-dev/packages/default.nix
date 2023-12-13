@@ -29,9 +29,9 @@ in
     lfs # Get infomation on yoour mounted disks
     libnotify # A library that sends desktop notifications to a notification daemon
     tree # A recursive directory listing program that produces a depth indented listing of files
-    xdotool # Fake keyboard/mouse input, window management, and more
-    xdo # Small X utility to perform elementary actions on windows
-    xsel # Copy/paste to the X11 clipboard from command line
+    # xdotool # Fake keyboard/mouse input, window management, and more
+    # xdo # Small X utility to perform elementary actions on windows
+    # xsel # Copy/paste to the X11 clipboard from command line
     fd # A simple, fast and user-friendly alternative to 'find'
     lolcat # Rainbows and unicorns!
     fortune # A simple program that displays a pseudorandom message from a database of quotations
@@ -39,6 +39,11 @@ in
     appimage-run # A tool to run AppImages
     jq # A lightweight and flexible command-line JSON processor
     socat # Multipurpose relay for bidirectional data transfer
+    ookla-speedtest # Command line interface for testing internet bandwidth using speedtest.net
+    cliphist # A simple clipboard history tool
+    wl-clipboard # Command-line copy/paste utilities for Wayland
+    wl-clip-persist # A Wayland clipboard manager
+    cava # Console-based Audio Visualizer for Alsa
 
     # bullshit apps
     cmatrix # Matrix effect in the terminal
@@ -104,4 +109,10 @@ in
     sumneko-lua-language-server # A full-featured Lua language server
     luajitPackages.luarocks # A package manager for Lua modules
     alejandra # The Uncompromising Nix Code Formatter
+
+    # Privacy
+    protonmail-bridge # ProtonMail Bridge
+
+    # Mail clients
+    thunderbird # Thunderbird mail client
   ]
