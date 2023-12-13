@@ -61,7 +61,9 @@ in
             "vscode"
             "google-chrome"
           ];
-        permittedInsecurePackages = [];
+        permittedInsecurePackages = [
+          "electron-25.9.0"
+        ];
       };
       overlays = [
         (import ./overlays/bin.nix)

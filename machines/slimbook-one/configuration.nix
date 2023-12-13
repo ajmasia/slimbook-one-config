@@ -213,13 +213,13 @@
     # Enable D-Bus communication for sandboxed applications
     portal = {
       enable = true;
-      config = {
-        common = {
-          default = [
-            "gtk"
-          ];
-        };
-      };
+      # config = {
+      #   common = {
+      #     default = [
+      #       "gtk"
+      #     ];
+      #   };
+      # };
     };
   };
 
